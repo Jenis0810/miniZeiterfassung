@@ -1,0 +1,49 @@
+﻿@model miniZeiterfassung.Models.TimeModel
+
+@{
+    ViewData["Title"] = "Create Time Model";
+}
+
+<h1>Create Time Model</h1>
+
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="TimeModelNumber" class="control-label"></label>
+        <input asp-for="TimeModelNumber" class="form-control" type="number" />
+        <span asp-validation-for="TimeModelNumber" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="FromTime" class="control-label"></label>
+        <input asp-for="FromTime" class="form-control" type="time" />
+        <span asp-validation-for="FromTime" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ToTime" class="control-label"></label>
+        <input asp-for="ToTime" class="form-control" type="time" />
+        <span asp-validation-for="ToTime" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="TargetHours" class="control-label"></label>
+        <input asp-for="TargetHours" class="form-control" type="number" step="0.01" />
+        <span asp-validation-for="TargetHours" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="FromBreak" class="control-label"></label>
+        <input asp-for="FromBreak" class="form-control" type="time" />
+        <span asp-validation-for="FromBreak" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ToBreak" class="control-label"></label>
+        <input asp-for="ToBreak" class="form-control" type="time" />
+        <span asp-validation-for="ToBreak" the="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>

@@ -1,0 +1,58 @@
+﻿@* @model IEnumerable<miniZeiterfassung.Models.Record> *@
+
+@{
+    ViewData["Title"] = "Time Tracking Overview";
+}
+
+<h2>Time Tracking Overview</h2>
+
+<form asp-action="Index" method="get">
+    <div class="form-group">
+        <label for="employeeName">Employee Name:</label>
+        <select id="employeeName" name="employeeId" class="form-control">
+            @* @foreach (var employee in ViewBag.Employees as IEnumerable<miniZeiterfassung.Models.Employee>)
+            {
+                <option value="@employee.EmployeeId">@employee.Name</option>
+            } *@
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="fromDate">From Date:</label>
+        <input type="date" id="fromDate" name="fromDate" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="toDate">To Date:</label>
+        <input type="date" id="toDate" name="toDate" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<table class="table table-striped mt-4">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>From Time</th>
+            <th>To Time</th>
+            <th>Target Hours</th>
+            <th>Working Hours</th>
+            <th>Working Hours/Day</th>
+            <th>Day Balance</th>
+            <th>Total Balance</th>
+        </tr>
+    </thead>
+    <tbody>
+        @* @foreach (var record in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => record.Date)</td>
+                <td>@record.FromTime.ToString(@"hh\:mm")</td> <!-- Format TimeSpan values -->
+                <td>@record.ToTime.ToString(@"hh\:mm")</td>
+                <td>@Html.DisplayFor(modelItem => record.Employee.TimeModel.TargetHours)</td>
+                <td>@(record.ToTime - record.FromTime).TotalHours.ToString("F2")</td> <!-- Calculate working hours -->
+                <td>@(record.ToTime - record.FromTime).TotalHours.ToString("F2")</td> <!-- This assumes one record per day, adjust if needed -->
+                <td>@(record.ToTime - record.FromTime - TimeSpan.FromHours(record.Employee.TimeModel.TargetHours)).TotalHours.ToString("F2")</td>
+                <td>@ViewBag.TotalBalance</td> <!-- Calculate this in your controller -->
+            </tr>
+        } *@
+    </tbody>
+</table>

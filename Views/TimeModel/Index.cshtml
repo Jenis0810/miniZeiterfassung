@@ -1,0 +1,44 @@
+﻿@model IEnumerable<miniZeiterfassung.Models.TimeModel>
+
+@{
+    ViewData["Title"] = "Time Models";
+}
+
+<h1>Time Models</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th> <!-- Add ID column -->
+            <th>@Html.DisplayNameFor(model => model.Name)</th>
+            <th>@Html.DisplayNameFor(model => model.FromTime)</th>
+            <th>@Html.DisplayNameFor(model => model.ToTime)</th>
+            <th>@Html.DisplayNameFor(model => model.TargetHours)</th>
+            <th>@Html.DisplayNameFor(model => model.FromBreak)</th>
+            <th>@Html.DisplayNameFor(model => model.ToBreak)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.TimeModelNumber)</td> <!-- Display ID -->    
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.FromTime)</td>
+                <td>@Html.DisplayFor(modelItem => item.ToTime)</td>
+                <td>@Html.DisplayFor(modelItem => item.TargetHours)</td>
+                <td>@Html.DisplayFor(modelItem => item.FromBreak)</td>
+                <td>@Html.DisplayFor(modelItem => item.ToBreak)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.TimeModelId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.TimeModelId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.TimeModelId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

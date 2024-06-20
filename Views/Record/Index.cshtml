@@ -1,0 +1,32 @@
+﻿@model IEnumerable<miniZeiterfassung.Models.Record>
+
+@{
+    ViewData["Title"] = "Records";
+}
+
+<h1>Records</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Date)</th>
+            <th>@Html.DisplayNameFor(model => model.FromTime)</th>
+            <th>@Html.DisplayNameFor(model => model.ToTime)</th>
+            <th>@Html.DisplayNameFor(model => model.Employee.Name)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Date)</td>
+                <td>@Html.DisplayFor(modelItem => item.FromTime)</td>
+                <td>@Html.DisplayFor(modelItem => item.ToTime)</td>
+                <td>@Html.DisplayFor(modelItem => item.Employee.Name)</td>
+            </tr>
+        }
+    </tbody>
+</table>
