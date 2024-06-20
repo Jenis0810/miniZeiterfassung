@@ -17,7 +17,8 @@ public class RecordController : Controller
     // GET: Record
     public async Task<IActionResult> Index()
     {
-        var records = await _context.Records.Include(r => r.Employee).ToListAsync();
+        var records = await _context.Records.Include(r => r.Employee)
+            .OrderBy(r => r.Date).ToListAsync();
         return View(records);
     }
 
